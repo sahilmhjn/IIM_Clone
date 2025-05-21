@@ -153,13 +153,21 @@
       const catNo = document.getElementById("catNo").value.trim();
       const dob = document.getElementById("dob").value.trim();
       const checked = document.getElementById("robotCheck").checked;
-
-      if (catNo && dob && checked) {
-        window.open("sample.pdf", "_blank");
-      } else {
+  
+      if (!catNo || !dob || !checked) {
         alert("Please fill all fields and verify the captcha.");
+        return;
       }
+  
+      if (catNo !== "23216541") {
+        alert("Invalid CAT Registration Number. Please enter a valid one.");
+        return;
+      }
+  
+      // Proceed if everything is valid
+      window.open("sample.pdf", "_blank");
     });
   </script>
+  
 </body>
 </html>
