@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>IIM Kashipur Login</title>
+  <style>
+    @keyframes backgroundChange {
+  0%   { background-color: #25b4cc; }
+  25%  { background-color: #1abc9c; }
+  50%  { background-color: #3498db; }
+  75%  { background-color: #9b59b6; }
+  100% { background-color: #25b4cc; }
+}
+
+    body {
+      background: #25b4cc;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      animation: backgroundChange 7s infinite;
+
+    }
+
+    .login-box {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      width: 400px;
+      box-sizing: border-box;
+    }
+
+    .login-box img {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    .login-box h5 {
+      text-align: left;
+      margin: 0 0 40px 0;
+      font-size: 15px;
+    }
+
+    label {
+      display: block;
+      text-align: left;
+      font-weight: bold;
+      margin-top: 10px;
+      margin-bottom: 5px;
+      font-size: 14px;
+    }
+
+    input[type="text"],
+    input[type="date"] {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    .recaptcha-box {
+      display: flex;
+      align-items: center;
+      border: 1px solid #ccc;
+      padding: 10px;
+      width: 60%;
+      height: 50px;
+      margin: 20px 0;
+      border-radius: 5px;
+      justify-content: space-between;
+    }
+
+    .recaptcha-box label {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      font-weight: normal;
+      margin: 0;
+    }
+
+    .recaptcha-img {
+      width: 30px;
+      height: 30px;
+      background-image: url('https://www.gstatic.com/recaptcha/api2/logo_48.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    #robotCheck{
+        width: 30px;
+        height: 30px;
+    }
+
+    button {
+      padding: 10px;
+      background: #0056cc;
+      color: white;
+      border: none;
+      width: 100%;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .footer {
+      margin-top: 20px;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .footer b {
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-box">
+    <img src="image.png" alt="IIM Kashipur Logo" />
+    
+    <h5>LOGIN</h5>
+    
+    <form id="loginForm">
+      <label for="catNo">CAT Registration No</label>
+      <input type="text" id="catNo" required />
+
+      <label for="dob">Date of Birth</label>
+      <input type="date" id="dob" required />
+
+      <div class="recaptcha-box">
+        <label>
+          <input type="checkbox" id="robotCheck" style="margin-right: 8px;" />
+          I'm not a robot
+        </label>
+        <div class="recaptcha-img"></div>
+      </div>
+
+      <button type="submit">SUBMIT</button>
+    </form>
+
+    <div class="footer">
+      In case of any query/issue, please email to <br />
+      <b>admission@iimkashipur.ac.in</b>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const catNo = document.getElementById("catNo").value.trim();
+      const dob = document.getElementById("dob").value.trim();
+      const checked = document.getElementById("robotCheck").checked;
+
+      if (catNo && dob && checked) {
+        window.open("sample.pdf", "_blank");
+      } else {
+        alert("Please fill all fields and verify the captcha.");
+      }
+    });
+  </script>
+</body>
+</html>
